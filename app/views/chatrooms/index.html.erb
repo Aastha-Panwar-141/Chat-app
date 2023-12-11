@@ -1,25 +1,33 @@
-<div class= "container">
+<h4 class="text-center">Hii <span class="text-capitalize"><%= current_user.name %></span>! Welcome to the Chat Application</h4>
+
+<div class= "row container">
+  <% if @current_user %>
+
 <div class="col-md-4">
-<h1 class= "text-center">Welcome to the Chat Application</h1>
 
-<p>Hii <%= current_user.name %> </p>
-  <h4> Users </h4>
-  <%= render @users %>
-
-<h1>All Chat Rooms</h1>
-<%= render partial: "layouts/new_chatroom_form" %>
-<div>
+  <%# <h4> Users </h4> %>
+  <%# <div id="users"> %>
+    <%# render @users %>
+  <%# </div> %>
+<h4>All Chat Rooms</h4>
+<div id="rooms">
+  <%# render @chatrooms %>
+  <ul>
     <% @chatrooms.each do |chatroom| %>
-        <p><%= link_to chatroom.name, chatrooms_url %></p>
+        <li><%= link_to chatroom.name, chatroom %></li>
     <% end %>
+  </ul>
 </div>
+<%= render partial: "layouts/new_chatroom_form" %>
+
+<%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
 </div>
-<div class="col-md-8 bg-dark text-light">
+<div class="col-md-8 bg-dark text-light p-0 room-window">
   <%# render @single_room %>
 
   <% if @single_room %>
-    <h4 class="text-center"> <%= @single_room.name %> </h4>
-    <div id="chat-messages">
+    <h4 class="room-title text-capitalize p-3 pl-4"> <%= @single_room.name %> </h4>
+    <div id="chat-messages" class="p-3">
       <%= render @messages %>
     </div>
 
@@ -27,5 +35,9 @@
 
   <% end %>
 </div>
+<% else %>
+
+<p>You are not ssigned in. <%= link_to 'Sign In', new_user_session%></p>
+<% end %>
 
 </div>

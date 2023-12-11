@@ -1,1 +1,4 @@
-<div> <%= link_to user.name %> </div>
+<div> <%# user.name %> </div>
+<% @users.each do |user| %>
+<div> <%= user.name %> </div>
+<% end %>

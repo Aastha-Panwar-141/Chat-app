@@ -16,7 +16,7 @@
  .msg-form {
     position: fixed;
     bottom: 0;
-    width: 90%
+    width: 61%
   }
 
   .col-md-10 {
@@ -31,3 +31,24 @@
   body {
     background: #ffc0cb6b;
   }
+  .message-box {
+  width: fit-content;
+  max-width: 40%;
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: #555555 ;
+  padding: 10px
+}
+
+.room-window .room-title {
+    background: #035f57;
+    font-size: 18px;
+}
+#rooms ul {
+    padding: 0;
+    list-style: none;
+}
+.msg-form input.btn {
+    background: #035f57;
+}
